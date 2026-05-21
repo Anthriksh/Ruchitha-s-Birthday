@@ -1,0 +1,770 @@
+/* ================================= */
+/* GLOBAL */
+/* ================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#ffdce8,#fff0f5,#ffe3ec);
+overflow-x:hidden;
+min-height:100vh;
+color:#333;
+position:relative;
+}
+
+/* SOFT BACKGROUND GLOW */
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#ffbfd3;
+border-radius:50%;
+top:-200px;
+right:-150px;
+opacity:0.25;
+filter:blur(80px);
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#ffdce8;
+border-radius:50%;
+bottom:-200px;
+left:-150px;
+opacity:0.3;
+filter:blur(80px);
+z-index:-1;
+}
+
+/* ================================= */
+/* SPARKLES ✨ */
+/* ================================= */
+
+.sparkles::before,
+.sparkles::after{
+content:'✨';
+position:fixed;
+font-size:28px;
+opacity:0.2;
+animation:sparkleFloat 12s linear infinite;
+pointer-events:none;
+z-index:1;
+}
+
+.sparkles::before{
+left:8%;
+top:100%;
+}
+
+.sparkles::after{
+right:10%;
+top:100%;
+animation-delay:6s;
+}
+
+@keyframes sparkleFloat{
+
+0%{
+transform:translateY(0) rotate(0deg);
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+}
+
+}
+
+/* ================================= */
+/* LOADING SCREEN */
+/* ================================= */
+
+#loading{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#ff4f87,#ff84aa);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999999;
+color:white;
+transition:1s;
+}
+
+#loading h1{
+font-size:90px;
+animation:pulse 1s infinite;
+}
+
+#loading p{
+margin-top:20px;
+font-size:24px;
+font-weight:500;
+text-align:center;
+padding:0 20px;
+line-height:1.5;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.15);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* ================================= */
+/* MAIN CONTAINER */
+/* ================================= */
+
+.container{
+width:92%;
+max-width:1050px;
+margin:auto;
+padding:50px 20px;
+position:relative;
+z-index:2;
+}
+
+/* ================================= */
+/* HERO SECTION */
+/* ================================= */
+
+.hero{
+background:rgba(255,255,255,0.72);
+backdrop-filter:blur(18px);
+padding:70px 40px;
+border-radius:45px;
+box-shadow:0 20px 60px rgba(0,0,0,0.08);
+text-align:center;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.4);
+}
+
+/* FLOATING CIRCLES */
+
+.hero::before{
+content:'';
+position:absolute;
+width:280px;
+height:280px;
+background:#ffbfd3;
+border-radius:50%;
+top:-120px;
+right:-100px;
+opacity:0.35;
+filter:blur(10px);
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:220px;
+height:220px;
+background:#ffdce8;
+border-radius:50%;
+bottom:-100px;
+left:-90px;
+opacity:0.45;
+filter:blur(10px);
+}
+
+/* ================================= */
+/* CAT */
+/* ================================= */
+
+.cat{
+font-size:100px;
+animation:bounce 1.3s infinite;
+position:relative;
+z-index:2;
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-14px);
+}
+
+}
+
+/* ================================= */
+/* TITLE */
+/* ================================= */
+
+.hero h1{
+font-size:68px;
+font-weight:800;
+color:#ff2d75;
+line-height:1.2;
+position:relative;
+z-index:2;
+margin-top:10px;
+text-shadow:0 5px 15px rgba(255,79,135,0.15);
+}
+
+/* ================================= */
+/* TYPEWRITER */
+/* ================================= */
+
+.typing{
+margin-top:25px;
+font-size:25px;
+color:#666;
+min-height:50px;
+position:relative;
+z-index:2;
+line-height:1.7;
+padding:0 10px;
+}
+
+/* ================================= */
+/* QUESTION */
+/* ================================= */
+
+.question{
+margin-top:55px;
+font-size:50px;
+font-weight:700;
+color:#ff2d75;
+position:relative;
+z-index:2;
+}
+
+.sub{
+margin-top:12px;
+font-size:23px;
+color:#777;
+position:relative;
+z-index:2;
+}
+
+/* ================================= */
+/* BUTTONS */
+/* ================================= */
+
+.buttons{
+margin-top:45px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+position:relative;
+z-index:2;
+}
+
+button{
+padding:18px 42px;
+border:none;
+border-radius:100px;
+font-size:24px;
+cursor:pointer;
+transition:0.35s;
+font-weight:600;
+}
+
+/* YES BUTTON */
+
+#yesBtn{
+background:linear-gradient(135deg,#ff4f87,#ff7aa5);
+color:white;
+box-shadow:0 10px 30px rgba(255,79,135,0.35);
+}
+
+#yesBtn:hover{
+transform:translateY(-5px) scale(1.08);
+box-shadow:0 15px 40px rgba(255,79,135,0.4);
+}
+
+/* NO BUTTON */
+
+#noBtn{
+background:white;
+border:3px solid #ff4f87;
+color:#ff4f87;
+position:relative;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* ================================= */
+/* LOVE SECTION */
+/* ================================= */
+
+#loveSection{
+display:none;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+margin-top:70px;
+}
+
+/* ================================= */
+/* CARD */
+/* ================================= */
+
+.card{
+background:rgba(255,255,255,0.9);
+padding:50px;
+border-radius:40px;
+box-shadow:0 15px 50px rgba(0,0,0,0.07);
+margin-bottom:45px;
+border:1px solid rgba(255,255,255,0.5);
+}
+
+.card h2{
+font-size:55px;
+color:#ff2d75;
+text-align:center;
+}
+
+.card p{
+margin-top:25px;
+font-size:24px;
+line-height:2;
+color:#555;
+text-align:center;
+}
+
+/* ================================= */
+/* MEMORY SECTION */
+/* ================================= */
+
+.memoryGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:28px;
+margin-top:40px;
+}
+
+.memory{
+height:240px;
+perspective:1000px;
+}
+
+.memoryInner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+}
+
+.memory:hover .memoryInner{
+transform:rotateY(180deg);
+}
+
+.front,
+.back{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:28px;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:22px;
+text-align:center;
+backface-visibility:hidden;
+font-size:22px;
+font-weight:600;
+}
+
+.front{
+background:linear-gradient(135deg,#ff4f87,#ff84aa);
+color:white;
+box-shadow:0 10px 30px rgba(255,79,135,0.2);
+}
+
+.back{
+background:white;
+transform:rotateY(180deg);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+line-height:1.7;
+}
+
+/* ================================= */
+/* GALLERY */
+/* ================================= */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+margin-top:40px;
+}
+
+.photo{
+background:white;
+padding:16px;
+border-radius:28px;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+transition:0.4s;
+position:relative;
+}
+
+.photo:nth-child(1){
+transform:rotate(-3deg);
+}
+
+.photo:nth-child(2){
+transform:rotate(2deg);
+}
+
+.photo:nth-child(3){
+transform:rotate(-2deg);
+}
+
+.photo:hover{
+transform:rotate(0deg) scale(1.05);
+}
+
+.photo img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(255,105,180,0.15);
+}
+
+.caption{
+margin-top:16px;
+font-size:18px;
+font-weight:600;
+color:#555;
+text-align:center;
+line-height:1.5;
+}
+
+/* ================================= */
+/* QUIZ */
+/* ================================= */
+
+.quizGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+margin-top:35px;
+}
+
+.quizOption{
+background:#fff0f5;
+padding:28px;
+border-radius:24px;
+cursor:pointer;
+transition:0.35s;
+font-size:23px;
+font-weight:600;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.quizOption:hover{
+transform:translateY(-6px);
+background:#ff4f87;
+color:white;
+}
+
+/* ================================= */
+/* HEART GAME */
+/* ================================= */
+
+#gameArea{
+height:370px;
+background:rgba(255,255,255,0.6);
+border-radius:35px;
+position:relative;
+overflow:hidden;
+margin-top:35px;
+border:2px dashed #ffb6cb;
+}
+
+.fallingHeart{
+position:absolute;
+font-size:38px;
+cursor:pointer;
+animation:fall 5s linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+top:-50px;
+}
+
+100%{
+top:100%;
+}
+
+}
+
+#score{
+margin-top:22px;
+font-size:30px;
+font-weight:700;
+color:#ff2d75;
+text-align:center;
+}
+
+/* ================================= */
+/* FLOAT HEARTS */
+/* ================================= */
+
+.floatHeart{
+position:fixed;
+font-size:30px;
+pointer-events:none;
+animation:floatUp 5s linear forwards;
+z-index:999;
+}
+
+@keyframes floatUp{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ================================= */
+/* POPUPS */
+/* ================================= */
+
+.popup{
+position:fixed;
+bottom:20px;
+right:20px;
+background:white;
+padding:18px 25px;
+border-radius:20px;
+box-shadow:0 12px 30px rgba(0,0,0,0.1);
+z-index:99999;
+animation:fadeIn 0.5s;
+font-size:18px;
+font-weight:500;
+}
+
+/* ================================= */
+/* ROAST POPUP */
+/* ================================= */
+
+.roastPopup{
+position:fixed;
+top:30px;
+left:50%;
+transform:translateX(-50%);
+background:linear-gradient(135deg,#ff4f87,#ff7aa5);
+color:white;
+padding:18px 32px;
+border-radius:100px;
+font-size:22px;
+font-weight:600;
+z-index:999999;
+animation:fadeIn 0.5s;
+box-shadow:0 10px 25px rgba(255,79,135,0.35);
+}
+
+/* ================================= */
+/* CHEMPA ATTACK */
+/* ================================= */
+
+#chempaAttack{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:999999;
+display:flex;
+flex-direction:column;
+align-items:center;
+animation:attackEntry 0.45s ease;
+transition:0.4s;
+}
+
+#chempaAttack img{
+width:240px;
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+animation:shake 0.4s infinite;
+object-fit:cover;
+}
+
+.attackText{
+background:#ff2d75;
+color:white;
+padding:14px 28px;
+border-radius:100px;
+font-size:23px;
+font-weight:700;
+margin-bottom:16px;
+box-shadow:0 10px 25px rgba(255,79,135,0.35);
+}
+
+@keyframes attackEntry{
+
+from{
+transform:translateX(300px);
+opacity:0;
+}
+
+to{
+transform:translateX(0);
+opacity:1;
+}
+
+}
+
+@keyframes shake{
+
+0%{transform:translateX(0);}
+25%{transform:translateX(-5px);}
+50%{transform:translateX(5px);}
+75%{transform:translateX(-5px);}
+100%{transform:translateX(0);}
+
+}
+
+/* ================================= */
+/* FINAL SECTION */
+/* ================================= */
+
+.final{
+margin-top:55px;
+background:linear-gradient(135deg,#ff4f87,#ff84aa);
+padding:65px 40px;
+border-radius:40px;
+color:white;
+text-align:center;
+box-shadow:0 15px 50px rgba(255,79,135,0.2);
+}
+
+.final h2{
+font-size:60px;
+}
+
+.final p{
+margin-top:28px;
+font-size:27px;
+line-height:2;
+}
+
+.endingLine{
+margin-top:30px;
+font-size:18px;
+opacity:0.85;
+text-align:center;
+line-height:1.8;
+}
+
+/* ================================= */
+/* MOBILE */
+/* ================================= */
+
+@media(max-width:768px){
+
+.container{
+width:95%;
+padding:25px 10px;
+}
+
+.hero{
+padding:55px 25px;
+}
+
+.hero h1{
+font-size:44px;
+}
+
+.question{
+font-size:35px;
+}
+
+.typing{
+font-size:19px;
+}
+
+.sub{
+font-size:18px;
+}
+
+.card{
+padding:35px 25px;
+}
+
+.card h2{
+font-size:38px;
+}
+
+.card p{
+font-size:20px;
+line-height:1.8;
+}
+
+button{
+font-size:20px;
+padding:15px 30px;
+}
+
+.quizOption{
+font-size:20px;
+}
+
+.final{
+padding:50px 25px;
+}
+
+.final h2{
+font-size:42px;
+}
+
+.final p{
+font-size:21px;
+line-height:1.8;
+}
+
+.photo img{
+height:300px;
+}
+
+#chempaAttack img{
+width:180px;
+}
+
+.attackText{
+font-size:18px;
+padding:10px 22px;
+}
+
+}
